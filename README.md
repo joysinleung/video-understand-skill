@@ -10,7 +10,7 @@
 
 ## 零、30 秒快速开始
 
-`<skill_dir>` = 本 skill 目录的绝对路径（即包含 `SKILL.md` 的那个文件夹）。本仓库里就是 `/Users/joysinleung/我的项目/video-understand`；你自己装到哪里就填哪里。
+`<skill_dir>` = 本 skill 目录的绝对路径（即包含 `SKILL.md` 的那个文件夹）。本仓库 clone 后就是该目录本身，例如 `~/skills/video-understand`；你自己装到哪里就填哪里。
 
 **① 本地视频文件（推荐：无需联网、无需 cookie、视频不出本机）**
 ```bash
@@ -59,28 +59,28 @@ python3 <skill_dir>/scripts/watch.py "https://youtu.be/XXXX" --detail balanced -
 ### 方式 A：WorkBuddy 推荐市场一键安装（仅当技能被策展入库后）
 若 `video-understand` 已被收录进 WorkBuddy 的「推荐市场 / BuiltinMarket」，在 WorkBuddy 中说一句「安装 video-understand skill」即可一键装好（脚本随包就绪）。
 
-> ⚠️ **重要事实**：把本仓库推到 **GitHub / GitLab 不会自动**让它在 WorkBuddy 市场里被搜到。WorkBuddy 的应用内「推荐市场」是平台**策展列表（BuiltinMarket）**，安装器只在该列表内按 `skillId` 搜索，**没有自动爬取 GitHub/GitLab 的机制**。发布到代码托管平台 ≠ 上架市场。必须先经提交流程进入 BuiltinMarket，用户才能"一句话安装"（见文末「如何上架推荐市场」）。
+> ⚠️ **重要事实**：把本仓库推到 **GitHub 不会自动**让它在 WorkBuddy 市场里被搜到。WorkBuddy 的应用内「推荐市场」是平台**策展列表（BuiltinMarket）**，安装器只在该列表内按 `skillId` 搜索，**没有自动爬取 GitHub 的机制**。发布到代码托管平台 ≠ 上架市场。必须先经提交流程进入 BuiltinMarket，用户才能"一句话安装"（见文末「如何上架推荐市场」）。
 
-### 方式 B：从 GitHub / GitLab 手动安装（任意 agent，最可靠、立即可用）
+### 方式 B：从 GitHub 手动安装（任意 agent，最可靠、立即可用）
 无论有没有上架市场，clone 本仓库到 skills 目录就能立刻用，无需等待策展：
 ```bash
 # 用户级（所有项目可用）
-git clone <本仓库 URL> ~/.workbuddy/skills/video-understand
+git clone https://github.com/joysinleung/video-understand.git ~/.workbuddy/skills/video-understand
 
 # 项目级（仅当前项目；注意：若项目 .gitignore 忽略了 .workbuddy 则仅本地用）
-git clone <本仓库 URL> <你的项目>/.workbuddy/skills/video-understand
+git clone https://github.com/joysinleung/video-understand.git <你的项目>/.workbuddy/skills/video-understand
 ```
 clone 后目录需含 `SKILL.md` / `README.md` / `LICENSE` / `scripts/`（本仓库已齐备）。首次运行见「零、快速开始」。
 
-> 注：本技能原始就以「我的项目/video-understand」为 git 主仓；Claw 工作区里的副本仅作本地加载、被 `.gitignore` 排除，主权以 GitHub/GitLab 仓库为准。
+> 注：本技能以「我的项目/video-understand」为 git 主仓（GitHub: `joysinleung/video-understand`）；Claw 工作区里的副本仅作本地加载、被 `.gitignore` 排除。
 
 ---
 
 ## 九、如何上架 WorkBuddy 推荐市场（BuiltinMarket）
 
-- **现状**：经核对 WorkBuddy 内置 `marketplace-skill-installer` 源码，应用内安装器只向 BuiltinMarket（平台策展列表）发起 `search` / `install`，**不支持从 GitHub/GitLab URL 直接安装或自动索引**。
+- **现状**：经核对 WorkBuddy 内置 `marketplace-skill-installer` 源码，应用内安装器只向 BuiltinMarket（平台策展列表）发起 `search` / `install`，**不支持从 GitHub URL 直接安装或自动索引**。
 - **要让用户"一句话安装"，需先把本 skill 提交进 BuiltinMarket 策展列表**。公开文档（codebuddy.cn/docs/workbuddy）目前未给出自助提交通道的具体入口/表单，通常走平台方提供的技能提交流程（可在 WorkBuddy 客户端「技能管理」或官方渠道咨询提交方式）。
-- **在此之前**：对外分发与安装请走「方式 B」（GitHub/GitLab clone），这是确定可用的路径。本仓库本身即是完整的可 clone 单元。
+- **在此之前**：对外分发与安装请走「方式 B」（GitHub clone），这是确定可用的路径。本仓库本身即是完整的可 clone 单元。
 
 ---
 
