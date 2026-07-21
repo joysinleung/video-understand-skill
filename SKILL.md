@@ -1,10 +1,15 @@
 ---
 name: video-understand
+slug: video-understand
+displayName: "video-understand 通用 AI 视频理解"
 version: "1.2.0"
 description: "让 AI Agent 读懂视频——通过抽帧 + 语音转写 + 多模态读帧，综合产出视频理解：拆爆款结构、找 bug、总结要点、时间戳定位、提取口播稿。触发词：读懂视频、看视频、分析视频、拆爆款、看录屏、视频理解、这个视频讲啥。适配所有支持 Bash + 多模态 Read 的 agent（WorkBuddy/Codex/Cursor/Trae/Claude Code/Gemini CLI 等）。"
 argument-hint: "<video-url-or-path> [question]"
 allowed-tools: Bash, Read, WebSearch, WebFetch
 license: MIT (底层脚本来自 bradautomates/watch)
+author: joysinleung
+homepage: "https://github.com/joysinleung/video-understand"
+agent_created: true
 ---
 
 # video-understand · 通用 AI 视频理解技能
