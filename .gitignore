@@ -1,0 +1,10 @@
+# Python bytecode cache
+__pycache__/
+*.pyc
+
+# Local working outputs (frames / transcripts produced at runtime)
+work/
+download/
+frames/
+audio.mp3
+watch-*/
