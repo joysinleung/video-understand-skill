@@ -57,7 +57,7 @@ python3 <skill_dir>/scripts/watch.py "https://youtu.be/XXXX" --detail balanced -
 ## 四、安装
 
 ### 方式 A：WorkBuddy 推荐市场一键安装（仅当技能被策展入库后）
-若 `video-understand` 已被收录进 WorkBuddy 的「推荐市场 / BuiltinMarket」，在 WorkBuddy 中说一句「安装 video-understand skill」即可一键装好（脚本随包就绪）。
+若 `video-understand-skill` 已被收录进 WorkBuddy 的「推荐市场 / BuiltinMarket」，在 WorkBuddy 中说一句「安装 video-understand-skill」即可一键装好（脚本随包就绪）。
 
 > ⚠️ **重要事实**：把本仓库推到 **GitHub 不会自动**让它在 WorkBuddy 市场里被搜到。WorkBuddy 的应用内「推荐市场」是平台**策展列表（BuiltinMarket）**，安装器只在该列表内按 `skillId` 搜索，**没有自动爬取 GitHub 的机制**。发布到代码托管平台 ≠ 上架市场。必须先经提交流程进入 BuiltinMarket，用户才能"一句话安装"（见文末「如何上架推荐市场」）。
 
@@ -65,14 +65,14 @@ python3 <skill_dir>/scripts/watch.py "https://youtu.be/XXXX" --detail balanced -
 无论有没有上架市场，clone 本仓库到 skills 目录就能立刻用，无需等待策展：
 ```bash
 # 用户级（所有项目可用）
-git clone https://github.com/joysinleung/video-understand.git ~/.workbuddy/skills/video-understand
+git clone https://github.com/joysinleung/video-understand-skill.git ~/.workbuddy/skills/video-understand
 
 # 项目级（仅当前项目；注意：若项目 .gitignore 忽略了 .workbuddy 则仅本地用）
-git clone https://github.com/joysinleung/video-understand.git <你的项目>/.workbuddy/skills/video-understand
+git clone https://github.com/joysinleung/video-understand-skill.git <你的项目>/.workbuddy/skills/video-understand
 ```
 clone 后目录需含 `SKILL.md` / `README.md` / `LICENSE` / `scripts/`（本仓库已齐备）。首次运行见「一、快速开始」。
 
-> 注：本技能以「我的项目/video-understand」为 git 主仓（GitHub: `joysinleung/video-understand`）；Claw 工作区里的副本仅作本地加载、被 `.gitignore` 排除。
+> 注：本技能以「我的项目/video-understand」为 git 主仓（GitHub: `joysinleung/video-understand-skill`）；Claw 工作区里的副本仅作本地加载、被 `.gitignore` 排除。
 
 ---
 

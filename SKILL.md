@@ -8,7 +8,7 @@ argument-hint: "<video-url-or-path> [question]"
 allowed-tools: Bash, Read, WebSearch, WebFetch
 license: MIT (底层脚本来自 bradautomates/watch)
 author: joysinleung
-homepage: "https://github.com/joysinleung/video-understand"
+homepage: "https://github.com/joysinleung/video-understand-skill"
 agent_created: true
 ---
 
