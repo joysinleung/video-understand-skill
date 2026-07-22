@@ -2,8 +2,8 @@
 name: video-understand
 slug: video-understand-skill
 displayName: "video-understand 通用 AI 视频理解"
-version: "1.2.1"
-description: "让 AI Agent 读懂视频——通过抽帧 + 语音转写 + 多模态读帧，综合产出视频理解：拆爆款结构、找 bug、总结要点、时间戳定位、提取口播稿。触发词：读懂视频、看视频、分析视频、拆爆款、看录屏、视频理解、这个视频讲啥。适配所有支持 Bash + 多模态 Read 的 agent（WorkBuddy/Codex/Cursor/Trae/Claude Code/Gemini CLI 等）。"
+version: "1.2.2"
+description: "让 AI Agent 读懂视频——通过抽帧 + 语音转写 + 多模态读帧，综合产出视频理解：拆爆款结构、找 bug、总结要点、时间戳定位、提取口播稿。触发词：读懂/分析视频（含看视频、视频理解、这个视频讲啥）、拆爆款、看录屏找bug。适配所有支持 Bash + 多模态 Read 的 agent（WorkBuddy/Codex/Cursor/Trae/Claude Code/Gemini CLI 等）。"
 argument-hint: "<video-url-or-path> [question]"
 allowed-tools: Bash, Read, WebSearch, WebFetch
 license: MIT (底层脚本来自 bradautomates/watch)
@@ -83,6 +83,8 @@ agent_created: true
 4. **用多模态 Read 工具逐个读 `<workdir>/frames/` 里列出的帧图**——这是"看懂"的关键步骤，不能跳过。
 5. **综合帧画面 + 字幕时间轴**，按用户需求产出结论。
 
+**✅ 完成判据**：已用多模态 Read 读完 stdout 列出的**全部**帧图 + 已结合 `## Transcript` 时间轴 + 已按用户**具体需求**（拆爆款 / 找 bug / 总结 / 提取脚本等）产出结构化结论。未读完帧图前，不得声称"已看完视频"——这是 premature completion 的典型诱因。
+
 ## 三、按需求产出（对用户说人话）
 
 - **拆爆款**：结构拆解（钩子/节奏/镜头语言/文案公式）、可复用模板、情绪曲线
@@ -116,22 +118,8 @@ agent_created: true
 
 > WorkBuddy 用户可参考记忆库内的《video-understand-平台Cookie速查表》获取 1752 站点分类与方法论；非 WorkBuddy 用户忽略本句。
 
-skill 本身**不依赖 cookie**——cookie 只是部分平台「下载」环节 yt-dlp 的要求。
-
-**实测确认不要 cookie（2026-07-21 真跑过）**：YouTube ✅ | Bilibili ✅ | Dailymotion ✅
-
-**必须 cookie 黑名单**：抖音 / TikTok / X / Instagram / Facebook / 微博 / 小红书
-
-**回退铁律**：URL 被 cookie 拦 → 让用户发本地视频文件 → 走本地路径模式，**永不需 cookie、永不出网**。
-
-**判定法**：先 `yt-dlp -s <url>` 无 cookie 试；报错 `Fresh cookies needed`/`401`/`403` 即需 cookie → 转回退。
+cookie 仅影响「URL 下载」环节，skill 本身不依赖 cookie。完整速查（免 cookie 实测站点、必须 cookie 黑名单、回退铁律、判定法）与 Token 效率表见 **`references/cookie-and-token.md`**（渐进式披露，按需查阅）。
 
 ## 八、Token 效率参考
 
-| 内容 | Token 估算（约）|
-|------|----------------|
-| 80 帧 @ 512px | 50–80k image tokens |
-| 转写（10min 视频）| ~3k text tokens |
-| 分辨率 1024 | 图像 token ×4（仅必要时用）|
-
-同一会话内同一视频**勿重复跑脚本**——已有帧和转写在上下文中，直接回答即可。
+详见 **`references/cookie-and-token.md`** 的 Token 效率表（不读帧时不必加载本节）。
